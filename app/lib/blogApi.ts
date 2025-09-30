@@ -1,3 +1,4 @@
+import { Blog } from "@/types/blogTypes";
 import { supabase } from "./supabaseClient";
 
 // fetch all blogs
@@ -34,7 +35,8 @@ export async function addBlog(blog: {
 }
 
 // update blog
-export async function updateBlog(slug: string, updatedData: any) {
+
+export async function updateBlog(slug: string, updatedData: Blog) {
   const { data, error } = await supabase
     .from("blogs")
     .update(updatedData)

@@ -7,7 +7,6 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { Blog } from "@/types/blogTypes";
 import { getBlogs } from "@/lib/blogApi";
 
@@ -27,10 +26,10 @@ export const BlogProvider = ({ children }: BlogProviderProps) => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  // const supabase = createClient(
+  //   process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  //   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  // );
 
   const fetchBlogs = async () => {
     setLoading(true);

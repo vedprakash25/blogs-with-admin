@@ -1,8 +1,8 @@
-import { Github, Twitter, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/component/ui/button";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   return (
     <footer className=" font-inter">

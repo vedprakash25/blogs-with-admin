@@ -2,6 +2,7 @@ import { Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { Card } from "@/component/ui/card";
 import { Badge } from "@/component/ui/badge";
 import { Button } from "@/component/ui/button";
+import Image from "next/image";
 
 interface BlogCardProps {
   title: string;
@@ -32,7 +33,9 @@ const BlogCard = ({
     >
       {/* Image */}
       <div className="relative overflow-hidden">
-        <img
+        <Image
+          width={800}
+          height={800}
           src={image}
           alt={title}
           className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${

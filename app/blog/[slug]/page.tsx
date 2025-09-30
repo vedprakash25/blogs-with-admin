@@ -19,7 +19,7 @@ export default async function BlogPage({
   if (!blog) {
     return (
       <p className="text-center text-red-500 mt-10">
-        Blog not found for slug: "{slug}"
+        Blog not found for slug: &quot;{slug}&quot;
       </p>
     );
   }

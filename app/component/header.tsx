@@ -1,17 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Search, Moon, Sun } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 import { Button } from "@/component/ui/button";
-import { Input } from "@/component/ui/input";
-import { useTheme } from "@/component/themeProvider";
 import { cn } from "@/lib/utils";
 import SearchEngine from "./ui/searchBar";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
 
   const navItems = [
     { name: "Home", href: "/" },

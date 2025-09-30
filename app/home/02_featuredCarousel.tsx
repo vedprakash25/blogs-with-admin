@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/component/ui/button";
 import { Card } from "@/component/ui/card";
 import { Badge } from "@/component/ui/badge";
+import Image from "next/image";
 
 interface CarouselSlide {
   id: number;
@@ -92,7 +93,9 @@ const FeaturedCarousel = () => {
                   <Card className="relative h-96 lg:h-[500px] overflow-hidden border-0">
                     {/* Background Image */}
                     <div className="absolute inset-0">
-                      <img
+                      <Image
+                        width={800}
+                        height={800}
                         src={slide.image}
                         alt={slide.title}
                         className="w-full h-full object-cover"

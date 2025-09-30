@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react";
 import { searchPosts } from "@/lib/blogApi";
 
+type DataType = { id: string; title: string; content: string };
+
 export default function SearchEngine() {
   const [query, setQuery] = useState<string>("");
-  const [suggestions, setSuggestions] = useState<any>([]);
-  const [results, setResults] = useState<any>([]);
+  const [suggestions, setSuggestions] = useState<DataType[]>([]);
+  const [results, setResults] = useState<DataType[]>([]);
   const [searched, setSearched] = useState<boolean>(false); // track if user searched
 
   // Fetch suggestions as user types
@@ -17,7 +19,9 @@ export default function SearchEngine() {
 
     const timeout = setTimeout(async () => {
       const data = await searchPosts(query);
-      setSuggestions(data!.slice(0, 5));
+      if (data) {
+        setSuggestions(data.slice(0, 5));
+      }
     }, 300); // debounce
 
     return () => clearTimeout(timeout);
@@ -66,7 +70,7 @@ export default function SearchEngine() {
       {/* Suggestions */}
       {suggestions.length > 0 && (
         <ul className="border mt-1 rounded-md shadow bg-white">
-          {suggestions.map((item: any) => (
+          {suggestions.map((item: DataType) => (
             <li
               key={item.id}
               className="px-4 py-2 hover:text-blue-600 cursor-pointer"
@@ -84,7 +88,7 @@ export default function SearchEngine() {
       {/* Results */}
       <div className="mt-4">
         {results.length > 0 &&
-          results.map((post: any) => (
+          results.map((post: DataType) => (
             <div
               key={post.id}
               className="border-b py-2"
@@ -96,7 +100,9 @@ export default function SearchEngine() {
 
         {/* No results message */}
         {searched && results.length === 0 && (
-          <p className="text-gray-500 italic">No results found for "{query}"</p>
+          <p className="text-gray-500 italic">
+            No results found for &quot;{query}&quot;
+          </p>
         )}
       </div>
     </div>
