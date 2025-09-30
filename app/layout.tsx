@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Merriweather, JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./component/header";
+import Footer from "./component/footer";
+import { ThemeProvider } from "next-themes";
+import { BlogProvider } from "./context/BlogContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const merriWeather = Merriweather({
+  variable: "--font-me",
+  subsets: ["latin"],
+});
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetBrains = JetBrains_Mono({
+  variable: "--font-jbm",
   subsets: ["latin"],
 });
 
@@ -23,11 +31,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className="dark"
+      suppressHydrationWarning
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${merriWeather.variable} ${jetBrains.variable} ${inter.variable}  antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+          <BlogProvider>
+            <Header />
+            {children}
+            <Footer />
+          </BlogProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

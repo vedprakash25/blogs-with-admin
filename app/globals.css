@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    --font-inter: "Inter";
+    --font-me: "Merriweather";
+    --font-jbm: "JetBrains_Mono";
+
+    --color-background: #ffffff;
+    --color-foreground: #1f2937;
+
+    /* Card System */
+    --color-card: #ffffff;
+    --color-card-foreground: #1f2937;
+    --color-card-hover: #f8f9fb;
+
+    /* Popover */
+    --color-popover: #ffffff;
+    --color-popover-foreground: #1f2937;
+
+    /* Primary Brand - Modern Blue */
+    --color-primary: #3b82f6;
+    --color-primary-foreground: #ffffff;
+    --color-primary-hover: #3072db;
+
+    /* Secondary - Elegant Gray */
+    --color-secondary: #f8f9fb;
+    --color-secondary-foreground: #1f2937;
+
+    /* Muted - Subtle Text */
+    --color-muted: #f8f9fb;
+    --color-muted-foreground: #6b7280;
+
+    /* Accent - Warm Orange for Highlights */
+    --color-accent: #f97316;
+    --color-accent-foreground: #ffffff;
+
+    /* Status Colors */
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #ffffff;
+    --color-success: #16a34a;
+    --color-warning: #eab308;
+
+    /* Borders & Inputs */
+    --color-border: #e3e8ef;
+    --color-input: #e3e8ef;
+    --color-ring: #3b82f6;
+
+    /* Design System Variables */
+    --radius: 0.75rem;
+
+    /* Custom Blog Gradients */
+    --color-gradient-hero: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    --color-gradient-card: linear-gradient(145deg, #ffffff 0%, #f8f9fb 100%);
+    --color-gradient-accent: linear-gradient(135deg, #f97316 0%, #f97316 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(31, 41, 55, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(31, 41, 55, 0.1), 0 2px 4px -1px rgba(31, 41, 55, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(31, 41, 55, 0.1), 0 4px 6px -2px rgba(31, 41, 55, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(31, 41, 55, 0.1), 0 10px 10px -5px rgba(31, 41, 55, 0.04);
+
+    /* Typography Scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+
+    /* Sidebar */
+    --sidebar-background: #fafafa;
+    --sidebar-foreground: #3f3f46;
+    --sidebar-primary: #18181b;
+    --sidebar-primary-foreground: #fafafa;
+    --sidebar-accent: #f3f4f6;
+    --sidebar-accent-foreground: #18181b;
+    --sidebar-border: #e5e7eb;
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+@layer base {
+    .d {
+        @apply border border-red-600
+    }
+
+    .bg-primary {
+        @apply bg-white
+    }
+
+    .bg-secondary {
+        @apply bg-white
+    }
+
+    .text-primary {
+        @apply text-white
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+h1, h2, h3, h4, h5, h6, p, button {
+    @apply font-inter
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+br{
+    @apply md:block hidden
+}
+
+.text-hero-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #f97316 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
