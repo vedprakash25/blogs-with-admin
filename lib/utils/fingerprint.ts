@@ -1,0 +1,13 @@
+'use client'
+
+let cached: string | null = null
+
+export async function getFingerprint(): Promise<string> {
+  if (cached) return cached
+
+  const FingerprintJS = await import('@fingerprintjs/fingerprintjs')
+  const fp = await FingerprintJS.load()
+  const result = await fp.get()
+  cached = result.visitorId
+  return cached
+}
