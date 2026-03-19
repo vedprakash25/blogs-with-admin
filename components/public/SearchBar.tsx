@@ -10,7 +10,7 @@ export default function SearchBar() {
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
-  const debounceRef = useRef<ReturnType<typeof setTimeout>>()
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     if (!query.trim()) {
@@ -19,7 +19,10 @@ export default function SearchBar() {
       return
     }
 
-    clearTimeout(debounceRef.current)
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current)
+    }
+
     debounceRef.current = setTimeout(async () => {
       setLoading(true)
       const res = await fetch(`/api/blogs?search=${encodeURIComponent(query)}&limit=5`)
@@ -29,7 +32,11 @@ export default function SearchBar() {
       setLoading(false)
     }, 300)
 
-    return () => clearTimeout(debounceRef.current)
+    return () => {
+      if (debounceRef.current) {
+        clearTimeout(debounceRef.current)
+      }
+    }
   }, [query])
 
   // Close on outside click
@@ -46,16 +53,16 @@ export default function SearchBar() {
   return (
     <div ref={containerRef} className="relative w-full">
       <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
+        {/* <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
           🔍
-        </span>
+        </span> */}
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => results.length > 0 && setOpen(true)}
           placeholder="Search articles..."
-          className="w-full pl-9 pr-4 py-1.5 text-sm border border-border rounded-lg bg-muted/40 focus:bg-background focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+          className="w-full px-2 py-1.5 text-sm border border-border rounded-sm bg-muted/40 focus:bg-background focus:outline-none focus:ring-[1px] focus:ring-blue-300/20 transition placeholder:text-light"
         />
         {loading && (
           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs">

@@ -28,11 +28,10 @@ const ToolbarButton = ({
     type="button"
     onClick={onClick}
     title={title}
-    className={`px-2 py-1.5 rounded text-sm transition-colors ${
-      active
+    className={`px-2 py-1.5 rounded text-sm transition-colors ${active
         ? 'bg-orange-100 dark:bg-orange-950/40 text-orange-600'
         : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-    }`}
+      }`}
   >
     {children}
   </button>
@@ -46,6 +45,7 @@ export default function RichTextEditor({
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit,
       Image.configure({ inline: false, allowBase64: false }),

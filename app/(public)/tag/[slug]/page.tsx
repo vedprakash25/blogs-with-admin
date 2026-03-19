@@ -8,7 +8,7 @@ interface Props {
   params: { slug: string }
 }
 
-export default async function TagPage({ params }: Props) {
+export default async function TagPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
 
   const supabase = await createClient()

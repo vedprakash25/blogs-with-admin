@@ -1,17 +1,26 @@
-import type { TocItem } from '../types'
+import { slugify } from "./slugify";
+import type { TocItem } from "@/lib/types";
 
+// Recursively extract plain text from a TipTap node
+function extractText(node: any): string {
+  if (node.type === "text") return node.text ?? "";
+  if (node.content?.length) return node.content.map(extractText).join("");
+  return "";
+}
+
+// Extract all heading nodes from TipTap JSON content
 export function extractToc(content: Record<string, any>): TocItem[] {
-  const items: TocItem[] = []
+  if (!content?.content) return [];
 
-  function walk(node: any) {
-    if (node.type === 'heading' && node.attrs?.level) {
-      const text = node.content?.map((n: any) => n.text || '').join('') || ''
-      const id = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')
-      items.push({ id, text, level: node.attrs.level })
-    }
-    if (node.content) node.content.forEach(walk)
-  }
-
-  if (content?.content) content.content.forEach(walk)
-  return items
+  return content.content
+    .filter((node: any) => node.type === "heading")
+    .map((node: any) => {
+      const text = extractText(node);
+      return {
+        id: slugify(text),
+        text,
+        level: node.attrs?.level ?? 2,
+      };
+    })
+    .filter((item: TocItem) => item.text.length > 0);
 }

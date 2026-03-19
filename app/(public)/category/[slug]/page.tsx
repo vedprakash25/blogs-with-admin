@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import BlogGrid from '@/components/public/BlogGrid'
 import CategoryTabs from '@/components/public/CategoryTabs'
+import { Banner } from '../../banner'
+import NewsletterBanner from '@/components/public/NewsletterBanner'
 
 export const revalidate = 60
 
@@ -9,7 +11,7 @@ interface Props {
   params: { slug: string }
 }
 
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
 
   const supabase = await createClient()
@@ -40,19 +42,25 @@ export default async function CategoryPage({ params }: Props) {
   })) ?? []
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-      <div className="mb-8">
-        <CategoryTabs categories={categories ?? []} />
-      </div>
+    <section>
+      <Banner />
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 xl:py-20 py-10">
+        <div className="mb-8">
+          <CategoryTabs categories={categories ?? []} />
+        </div>
 
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold">{category.name}</h1>
-        <p className="text-muted-foreground text-sm mt-1">
-          {blogs.length} article{blogs.length !== 1 ? 's' : ''}
-        </p>
-      </div>
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold">{category.name}</h1>
+          <p className="text-muted-foreground text-sm mt-1">
+            {blogs.length} article{blogs.length !== 1 ? 's' : ''}
+          </p>
+        </div>
 
-      <BlogGrid blogs={blogs} emptyMessage={`No posts in ${category.name} yet.`} />
-    </div>
+        <BlogGrid blogs={blogs} emptyMessage={`No posts in ${category.name} yet.`} />
+      </section>
+      <div >
+        <NewsletterBanner />
+      </div>
+    </section>
   )
 }

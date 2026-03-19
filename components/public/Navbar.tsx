@@ -12,11 +12,11 @@ export default function Navbar() {
   useEffect(() => setMounted(true), [])
 
   return (
-    <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md ">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold tracking-tight shrink-0">
-          Ink<span className="text-orange-500">well</span>
+        <Link href="/" className="text-2xl font-zen tracking-tight shrink-0">
+          Lense<span className="text-orange-500"></span>
         </Link>
 
         {/* Search */}

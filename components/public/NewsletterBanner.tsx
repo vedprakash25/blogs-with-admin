@@ -30,9 +30,8 @@ export default function NewsletterBanner() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border border-orange-200 dark:border-orange-900 rounded-3xl px-8 py-12 text-center">
-      <div className="text-4xl mb-4">✉</div>
-      <h2 className="text-2xl font-bold mb-2">Stay in the loop</h2>
+    <div className="max-w-6xl xl:px-6 px-4 mx-auto bg-linear-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border border-orange-200 dark:border-orange-900 rounded-3xl py-12 text-center">
+      <h2 className="text-2xl font-inter font-bold mb-2">Stay in the loop</h2>
       <p className="text-muted-foreground mb-6 max-w-md mx-auto">
         Get new articles delivered straight to your inbox. No spam, ever.
       </p>

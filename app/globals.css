@@ -25,6 +25,10 @@
 
   /* Default border color */
   --default-border-color: hsl(var(--border));
+
+  --font-zen: var(--font-zen);
+  --font-inter: var(--font-inter);
+  --font-sora: var(--font-sora);
 }
 
 /* ============================================================
@@ -75,6 +79,7 @@
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: "Sora"
 }
 
 /* ============================================================

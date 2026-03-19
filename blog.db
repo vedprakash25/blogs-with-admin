@@ -1,0 +1,461 @@
+INSERT INTO blogs (
+  title, slug, excerpt, content, cover_image,
+  category_id, author_id,
+  status, published_at,
+  meta_title, meta_description
+) VALUES
+
+(
+'SEO for Next.js Applications',
+'nextjs-seo-best-practices',
+'How to implement proper SEO in Next.js apps using structured metadata, server rendering, and indexing strategies to improve Google rankings and organic traffic.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Why SEO Matters for Next.js Applications"},
+   {"type":"paragraph","text":"Search engine optimization is essential for modern web applications that rely on discoverability. Next.js provides built-in tools that make SEO implementation significantly easier compared to traditional client-side React applications."},
+   {"type":"paragraph","text":"Using server-side rendering and static generation ensures that search engine crawlers can properly read page content without executing JavaScript."},
+   {"type":"heading","level":2,"text":"Core SEO Techniques"},
+   {"type":"list","items":[
+     "Use the Next.js Metadata API for title and meta descriptions.",
+     "Implement structured data for better search visibility.",
+     "Optimize images and assets to improve page speed.",
+     "Use semantic HTML and accessible markup."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/0f172a/38bdf8?text=Next.js+SEO',
+NULL,
+NULL,
+'published',
+'2026-05-24',
+'SEO for Next.js Applications | Next.js Guide',
+'Learn how to implement proper SEO strategies in Next.js applications using server rendering, metadata, and performance optimization.'
+),
+
+(
+'Git Workflow Best Practices',
+'git-workflow-best-practices',
+'How poor Git practices cause merge conflicts, lost commits, and broken deployments — and how to manage branches, commits, and collaboration effectively.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Why Git Workflow Matters"},
+   {"type":"paragraph","text":"Git is the backbone of modern software collaboration. Poor Git habits can quickly lead to merge conflicts, lost work, and unstable releases."},
+   {"type":"paragraph","text":"A structured workflow ensures that teams collaborate smoothly and maintain a clear history of changes."},
+   {"type":"heading","level":2,"text":"Best Practices"},
+   {"type":"list","items":[
+     "Use feature branches for isolated development.",
+     "Write clear and descriptive commit messages.",
+     "Keep pull requests small and focused.",
+     "Rebase when appropriate to maintain clean history."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/111827/60a5fa?text=Git+Workflow',
+NULL,
+NULL,
+'published',
+'2026-05-17',
+'Git Workflow Best Practices | Developer Guide',
+'Learn how effective Git workflows prevent merge conflicts and improve collaboration across development teams.'
+),
+
+(
+'Tailwind CSS Performance: Optimizing Bundle Size and Build Times',
+'tailwind-css-performance-optimization',
+'How to prevent Tailwind CSS from bloating your bundle size and maintain fast compile times in large React applications.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Understanding Tailwind Performance"},
+   {"type":"paragraph","text":"Tailwind CSS generates utility classes that can potentially grow large if not configured properly."},
+   {"type":"paragraph","text":"Using proper content configuration ensures that only the classes used in your project are included in the final build."},
+   {"type":"heading","level":2,"text":"Optimization Techniques"},
+   {"type":"list","items":[
+     "Enable content scanning for unused classes.",
+     "Avoid unnecessary dynamic class generation.",
+     "Split large UI components into smaller modules.",
+     "Use production build mode for purging unused CSS."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/0f172a/22c55e?text=Tailwind+Performance',
+NULL,
+NULL,
+'published',
+'2026-05-10',
+'Tailwind CSS Performance Optimization | React Guide',
+'Learn how to reduce Tailwind CSS bundle size and improve build performance in large React applications.'
+),
+
+(
+'CSS Performance Optimization',
+'css-performance-optimization',
+'How inefficient CSS causes slow page rendering, layout shifts, and poor user experience — and practical solutions to optimize CSS for faster web applications.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Why CSS Performance Matters"},
+   {"type":"paragraph","text":"CSS plays a major role in how browsers render and display pages. Inefficient styles can delay rendering and cause layout instability."},
+   {"type":"paragraph","text":"Optimizing CSS improves both perceived and actual performance."},
+   {"type":"heading","level":2,"text":"Optimization Strategies"},
+   {"type":"list","items":[
+     "Reduce unused CSS.",
+     "Avoid deep selector nesting.",
+     "Use modern layout systems like Flexbox and Grid.",
+     "Minimize expensive layout calculations."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/0ea5e9/ffffff?text=CSS+Performance',
+NULL,
+NULL,
+'published',
+'2026-05-03',
+'CSS Performance Optimization | Web Performance Guide',
+'Discover how optimizing CSS improves page rendering speed and user experience.'
+),
+
+(
+'React Hooks: When and How to Use',
+'react-hooks-complete-guide',
+'A practical guide to React''s built-in hooks useState, useEffect, useMemo, and useCallback — and when to use each hook to solve specific React problems.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Introduction to React Hooks"},
+   {"type":"paragraph","text":"React Hooks allow functional components to manage state and lifecycle logic without class components."},
+   {"type":"paragraph","text":"They simplify component architecture and enable code reuse."},
+   {"type":"heading","level":2,"text":"Common Hooks"},
+   {"type":"list","items":[
+     "useState for component state.",
+     "useEffect for side effects.",
+     "useMemo for memoizing expensive computations.",
+     "useCallback for stable function references."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/1e293b/f97316?text=React+Hooks',
+NULL,
+NULL,
+'published',
+'2026-04-26',
+'React Hooks Guide | When and How to Use',
+'A practical guide to React hooks including useState, useEffect, useMemo, and useCallback.'
+),
+
+(
+'React Custom Hooks: Improving Reusability',
+'react-custom-hooks-patterns',
+'How custom hooks solve React code duplication problems by extracting reusable logic and improving maintainability.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Why Custom Hooks"},
+   {"type":"paragraph","text":"Custom hooks allow developers to extract reusable logic from components and share it across multiple parts of an application."},
+   {"type":"paragraph","text":"They improve maintainability and make testing easier."},
+   {"type":"heading","level":2,"text":"Patterns"},
+   {"type":"list","items":[
+     "Encapsulate stateful logic.",
+     "Combine multiple hooks into a single abstraction.",
+     "Return reusable utilities and state."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/7c3aed/ffffff?text=React+Custom+Hooks',
+NULL,
+NULL,
+'published',
+'2026-04-19',
+'React Custom Hooks | Improving Reusability',
+'Learn how React custom hooks help eliminate code duplication and improve maintainability.'
+),
+
+(
+'Effective Code Reviews for Frontend Teams: Catching Bugs Before Production',
+'effective-code-reviews-frontend',
+'How structured code reviews prevent production bugs and accelerate team learning in React and Next.js projects.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Importance of Code Reviews"},
+   {"type":"paragraph","text":"Code reviews help maintain code quality, share knowledge across teams, and detect issues before they reach production."},
+   {"type":"paragraph","text":"They are an essential part of professional engineering workflows."},
+   {"type":"heading","level":2,"text":"Review Checklist"},
+   {"type":"list","items":[
+     "Check readability and maintainability.",
+     "Verify performance implications.",
+     "Ensure proper testing coverage.",
+     "Validate architecture consistency."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/334155/38bdf8?text=Code+Reviews',
+NULL,
+NULL,
+'published',
+'2026-04-12',
+'Effective Code Reviews for Frontend Teams',
+'Learn how structured code reviews prevent bugs and improve team collaboration.'
+),
+
+(
+'Image Optimization in Next.js: Reducing Load Time and Improving Core Web Vitals',
+'nextjs-image-optimization-guide',
+'How Next.js Image component solves common image performance problems through automatic optimization and lazy loading.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Why Image Optimization Matters"},
+   {"type":"paragraph","text":"Images are often the largest assets on web pages. Poorly optimized images slow down page load and harm Core Web Vitals."},
+   {"type":"paragraph","text":"Next.js provides the Image component which automatically optimizes images."},
+   {"type":"heading","level":2,"text":"Key Features"},
+   {"type":"list","items":[
+     "Automatic resizing.",
+     "Lazy loading by default.",
+     "Modern image formats.",
+     "Responsive images."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/0ea5e9/ffffff?text=Next.js+Images',
+NULL,
+NULL,
+'published',
+'2026-03-29',
+'Next.js Image Optimization Guide',
+'Learn how Next.js Image component improves performance and Core Web Vitals.'
+),
+
+(
+'GSAP ScrollTrigger in React: Building Performance-Optimized Scroll Animations',
+'gsap-scrolltrigger-react-animations',
+'How to implement GSAP scroll animations in React and avoid performance and cleanup problems using proper lifecycle management.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Why GSAP ScrollTrigger"},
+   {"type":"paragraph","text":"GSAP ScrollTrigger allows developers to create highly interactive scroll-driven animations."},
+   {"type":"paragraph","text":"When used properly with React lifecycle methods, it can deliver smooth animations without memory leaks."},
+   {"type":"heading","level":2,"text":"Best Practices"},
+   {"type":"list","items":[
+     "Initialize animations inside useEffect.",
+     "Clean up animations on component unmount.",
+     "Avoid excessive DOM queries.",
+     "Use ScrollTrigger batching for performance."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/020617/22c55e?text=GSAP+ScrollTrigger',
+NULL,
+NULL,
+'published',
+'2026-03-15',
+'GSAP ScrollTrigger in React | Animation Guide',
+'Learn how to implement performant scroll animations in React using GSAP ScrollTrigger.'
+),
+
+(
+'Advanced TypeScript Patterns for React Component Libraries',
+'advanced-typescript-patterns-react',
+'Build flexible, type-safe components with polymorphism, discriminated unions, and generic patterns that scale.',
+'{
+ "blocks":[
+   {"type":"heading","level":2,"text":"Why Advanced TypeScript Matters"},
+   {"type":"paragraph","text":"As component libraries grow, strong typing becomes essential for maintainability and developer experience."},
+   {"type":"paragraph","text":"Advanced TypeScript patterns enable highly flexible yet safe APIs."},
+   {"type":"heading","level":2,"text":"Key Patterns"},
+   {"type":"list","items":[
+     "Polymorphic component props.",
+     "Discriminated unions.",
+     "Generic reusable components.",
+     "Type-safe configuration objects."
+   ]}
+ ]
+}',
+'https://placehold.co/1200x630/1e293b/facc15?text=TypeScript+React',
+NULL,
+NULL,
+'published',
+'2026-03-08',
+'Advanced TypeScript Patterns for React',
+'Learn advanced TypeScript techniques for building scalable React component libraries.'
+),
+INSERT INTO blogs (
+  title, slug, excerpt, content, cover_image,
+  category_id, author_id,
+  status, published_at,
+  meta_title, meta_description
+) VALUES
+
+(
+'Animations in React with Framer Motion + TypeScript',
+'react-animations-framer-motion-typescript',
+'Create fluid, performant animations with Framer Motion and TypeScript from simple fades to complex gesture-driven interactions.',
+'{
+ "blocks":[
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Animations in React with Framer Motion + TypeScript"
+  },
+  {
+   "type":"paragraph",
+   "text":"Animations guide users, provide feedback, and make interfaces feel alive. Poorly implemented animations however create lag and degrade user experience."
+  },
+  {
+   "type":"paragraph",
+   "text":"Framer Motion combined with TypeScript enables smooth, declarative animations while maintaining strong type safety."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Why Framer Motion"
+  },
+  {
+   "type":"code",
+   "language":"bash",
+   "code":"npm install framer-motion"
+  },
+  {
+   "type":"paragraph",
+   "text":"Framer Motion provides a simple API, powerful animation primitives, gesture support, and excellent TypeScript compatibility."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Basic Animation Example"
+  },
+  {
+   "type":"code",
+   "language":"typescript",
+   "code":"import { motion } from ''framer-motion'';\n\nconst FadeInBox = () => {\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: 20 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ duration: 0.5 }}\n    >\n      I animate smoothly\n    </motion.div>\n  );\n};"
+  },
+  {
+   "type":"paragraph",
+   "text":"Framer Motion automatically types animation properties, giving developers strong autocomplete and type inference."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Variants for Reusable Animations"
+  },
+  {
+   "type":"paragraph",
+   "text":"Variants allow developers to define reusable animation states that can be shared across components."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Performance Best Practices"
+  },
+  {
+   "type":"list",
+   "items":[
+    "Prefer transform properties like translate, scale, and rotate.",
+    "Avoid layout-affecting properties like width and height.",
+    "Use hardware-accelerated transforms whenever possible.",
+    "Use animation libraries like Framer Motion that optimize updates."
+   ]
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Key Takeaways"
+  },
+  {
+   "type":"list",
+   "items":[
+    "Framer Motion offers powerful declarative animation APIs.",
+    "TypeScript improves reliability of animation props.",
+    "Variants keep animation logic reusable and organized.",
+    "Performance-friendly transforms ensure smooth animations."
+   ]
+  }
+ ]
+}',
+'https://picsum.photos/1200/500?random=8',
+NULL,
+NULL,
+'published',
+'2026-03-08',
+'Animations in React with Framer Motion + TypeScript',
+'Learn how to create smooth animations in React using Framer Motion with TypeScript support.'
+),
+
+(
+'Building a Dark Mode Toggle with Context and localStorage',
+'react-dark-mode-context-localstorage',
+'Create a seamless dark mode experience with React Context, persistent storage, and zero flash on page load.',
+'{
+ "blocks":[
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Building a Dark Mode Toggle with Context and localStorage"
+  },
+  {
+   "type":"paragraph",
+   "text":"Dark mode is now a standard feature in modern applications. Users expect a theme toggle that persists their preference across sessions."
+  },
+  {
+   "type":"paragraph",
+   "text":"A proper implementation must avoid the flash of incorrect theme during page load."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"The Flash of Light Problem"
+  },
+  {
+   "type":"paragraph",
+   "text":"Many applications initialize the theme state in React after the first render, causing a flash of light theme before dark theme loads."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Creating a Theme Context"
+  },
+  {
+   "type":"code",
+   "language":"typescript",
+   "code":"type Theme = ''light'' | ''dark'';\n\nconst ThemeContext = createContext();"
+  },
+  {
+   "type":"paragraph",
+   "text":"Using React Context allows the theme state to be shared across the entire application."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Persisting the Theme"
+  },
+  {
+   "type":"paragraph",
+   "text":"LocalStorage stores the user's preference so the application can restore it on the next visit."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Preventing Theme Flash"
+  },
+  {
+   "type":"paragraph",
+   "text":"A small inline script executed before React hydrates can read the stored theme and apply the correct class to the document element."
+  },
+  {
+   "type":"heading",
+   "level":2,
+   "text":"Key Takeaways"
+  },
+  {
+   "type":"list",
+   "items":[
+    "Use React Context to manage theme globally.",
+    "Persist user preference using localStorage.",
+    "Inject an early script to prevent theme flash.",
+    "Respect system preferences using prefers-color-scheme."
+   ]
+  }
+ ]
+}',
+'https://picsum.photos/1200/500?random=8',
+NULL,
+NULL,
+'published',
+'2026-03-08',
+'Dark Mode Toggle in React using Context',
+'Learn how to implement a persistent dark mode toggle in React using Context and localStorage.'
+),

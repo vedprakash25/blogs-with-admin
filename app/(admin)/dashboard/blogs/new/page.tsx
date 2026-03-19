@@ -33,7 +33,7 @@ export default function NewBlogPage() {
     })
   }, [])
 
-  async function save(status: 'draft' | 'published', scheduledAt?: Date) {
+  async function save(status: 'draft' | 'published' | 'scheduled', scheduledAt?: Date) {
     if (!title.trim()) { setError('Title is required'); return }
     if (!categoryId) { setError('Please select a category'); return }
 
@@ -47,6 +47,8 @@ export default function NewBlogPage() {
     }
     if (scheduledAt) body.scheduled_at = scheduledAt.toISOString()
 
+
+    console.log("Body", body)
     const res = await fetch('/api/blogs', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -54,6 +56,7 @@ export default function NewBlogPage() {
     })
 
     const { data, error } = await res.json()
+    console.log("res", data)
     setSaving(false)
 
     if (error) { setError(error); return }
