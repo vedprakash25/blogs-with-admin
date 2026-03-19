@@ -31,13 +31,13 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
-      <div className="w-full max-w-sm">
+      <div className="w-full max-w-sm pb-20">
         {/* Logo */}
-        <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold tracking-tight">
-            Ink<span className="text-orange-500">well</span>
+        <div className="text-center mb-8">
+          <h1 className="text-3xl tracking-tight font-zen">
+            The Lense
           </h1>
-          <p className="text-muted-foreground text-sm mt-2">Admin dashboard</p>
+          <p className="text-muted-foreground text-sm mt-2">Admin Login</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">
@@ -80,7 +80,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 rounded-lg text-sm transition disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 rounded-lg text-sm transition disabled:opacity-60 disabled:cursor-not-allowed mt-5"
           >
             {loading ? 'Signing in...' : 'Sign in'}
           </button>

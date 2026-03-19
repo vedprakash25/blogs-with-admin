@@ -28,8 +28,8 @@ export default function Sidebar() {
     <aside className="w-60 shrink-0 min-h-screen border-r border-border flex flex-col bg-card">
       {/* Logo */}
       <div className="px-6 py-5 border-b border-border">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          Ink<span className="text-orange-500">well</span>
+        <Link href="/" className="text-xl font-zen tracking-tight">
+          The Lense
         </Link>
         <p className="text-xs text-muted-foreground mt-0.5">Admin</p>
       </div>
@@ -46,11 +46,10 @@ export default function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                isActive
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${isActive
                   ? 'bg-orange-50 dark:bg-orange-950/30 text-orange-600 dark:text-orange-400 font-medium'
                   : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-              }`}
+                }`}
             >
               <span className="text-base">{item.icon}</span>
               {item.label}

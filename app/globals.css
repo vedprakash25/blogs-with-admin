@@ -40,32 +40,56 @@
    CSS VARIABLES — light and dark values
    ============================================================ */
 :root {
+  /* White */
   --background: 0 0% 100%;
+  /* Near Black (Dark Navy) */
   --foreground: 222.2 84% 4.9%;
+  /* Light Steel Blue */
   --muted: 210 40% 96.1%;
+  /* Slate Gray */
   --muted-foreground: 215.4 16.3% 46.9%;
+  /* Pale Blue Gray */
   --border: 214.3 31.8% 91.4%;
+  /* Pale Blue Gray */
   --input: 214.3 31.8% 91.4%;
+  /* Dark Navy Blue */
   --primary: 222.2 47.4% 11.2%;
+  /* Off White */
   --primary-foreground: 210 40% 98%;
+  /* Orange */
   --accent: 24 100% 50%;
+  /* White */
   --accent-foreground: 0 0% 100%;
+  /* White */
   --card: 0 0% 100%;
+  /* Near Black (Dark Navy) */
   --card-foreground: 222.2 84% 4.9%;
 }
 
 .dark {
+  /* Near Black (Dark Navy) */
   --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
+  /* Off White */
+  --foreground: 210 40% 85%;
+  /* Dark Blue Gray */
   --muted: 217.2 32.6% 17.5%;
+  /* Cool Gray */
   --muted-foreground: 215 20.2% 65.1%;
+  /* Dark Blue Gray */
   --border: 217.2 32.6% 17.5%;
+  /* Dark Blue Gray */
   --input: 217.2 32.6% 17.5%;
+  /* Off White */
   --primary: 210 40% 98%;
+  /* Dark Navy Blue */
   --primary-foreground: 222.2 47.4% 11.2%;
+  /* Orange */
   --accent: 24 100% 50%;
+  /* White */
   --accent-foreground: 0 0% 100%;
+  /* Near Black (Dark Navy) */
   --card: 222.2 84% 4.9%;
+  /* Off White */
   --card-foreground: 210 40% 98%;
 }
 
