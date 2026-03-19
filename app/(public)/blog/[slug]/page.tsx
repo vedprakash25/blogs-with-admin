@@ -3,26 +3,17 @@ import { notFound } from 'next/navigation'
 import { extractToc } from '@/lib/utils/toc'
 import TipTapRenderer from '@/components/public/TipTapRenderer'
 import TableOfContents from '@/components/public/TableOfContents'
+import { Metadata } from 'next'
 
-export async function generateStaticParams() {
-  const supabase = createClient(
+const createSupabase = () =>
+  createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   )
-  const { data } = await supabase
-    .from('blogs')
-    .select('slug')
-    .eq('status', 'published')
-  return data?.map(({ slug }) => ({ slug })) ?? []
-}
 
-export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
-  const { slug } = await params
-  const { data: blog, error } = await supabase
+const getBlog = async (slug: string) => {
+  const supabase = createSupabase()
+  const { data, error } = await supabase
     .from('blogs')
     .select(`
       id, title, slug, excerpt, content, cover_image,
@@ -33,7 +24,83 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
     .eq('slug', slug)
     .eq('status', 'published')
     .single()
-  if (error || !blog) notFound()
+
+  if (error || !data) return null
+  return data
+}
+
+// ── Static params ────────────────────────────────────────
+export async function generateStaticParams() {
+  const supabase = createSupabase()
+  const { data } = await supabase
+    .from('blogs')
+    .select('slug')
+    .eq('status', 'published')
+  return data?.map(({ slug }) => ({ slug })) ?? []
+}
+
+// ── Dynamic metadata ─────────────────────────────────────
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const blog = await getBlog(slug)
+
+  if (!blog) {
+    return {
+      title: 'Post Not Found',
+      description: 'This post does not exist or has been removed.',
+    }
+  }
+
+  const ogImage = blog.cover_image ?? '/og-image.png'
+  const postUrl = `https://thelense.vercel.app/blog/${blog.slug}` // 🔁 replace with your domain
+
+  // Strip HTML tags for plain text description
+  const plainText = blog.excerpt
+    ?? blog.content.replace(/<[^>]+>/g, '').slice(0, 155) + '...'
+
+  return {
+    title: blog.title,
+    description: plainText,
+
+    openGraph: {
+      type: 'article',
+      url: postUrl,
+      title: blog.title,
+      description: plainText,
+      siteName: 'The Lense',
+      publishedTime: blog.published_at,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: blog.title }],
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: plainText,
+      images: [ogImage],
+    },
+
+    alternates: {
+      canonical: postUrl,
+    },
+  }
+}
+
+// ── Page ─────────────────────────────────────────────────
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const blog = await getBlog(slug)
+
+  if (!blog) notFound()
+
+  const supabase = createSupabase()
   supabase.rpc('increment_views', { blog_id: blog.id }).then(() => { })
 
   const toc = extractToc(blog.content)
@@ -49,7 +116,9 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
               className="w-full rounded-2xl object-top object-cover max-h-112 mb-8"
             />
           )}
-          <h1 className="text-4xl font-zen font-bold leading-tight mb-4">{blog.title}</h1>
+          <h1 className="text-4xl font-zen font-bold leading-tight mb-4">
+            {blog.title}
+          </h1>
           {blog.excerpt && (
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 border-l-4 border-orange-500 pl-4">
               {blog.excerpt}
@@ -57,9 +126,13 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
           )}
           <div className="flex flex-wrap gap-2 items-center text-sm text-muted-foreground mb-4">
             {blog.published_at && (
-              <span>{new Date(blog.published_at).toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric'
-              })}</span>
+              <span>
+                {new Date(blog.published_at).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </span>
             )}
             <span>· {blog.views ?? 0} views</span>
           </div>
@@ -80,13 +153,11 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
           )}
         </article>
 
-        {/* ── Table of Contents sidebar ── */}
         {toc.length > 0 && (
           <aside className="hidden lg:block w-64 shrink-0">
             <TableOfContents items={toc} />
           </aside>
         )}
-
       </div>
     </div>
   )

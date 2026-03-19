@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
-import { Fira_Code, Inter, Zen_Dots, Sora } from "next/font/google"
+import { Inter, Zen_Dots, Sora } from "next/font/google"
 
 import './globals.css'
 
-export const metadata: Metadata = {
-  title: 'Inkwell',
-  description: 'A modern blog platform',
-}
+
 
 const zen = Zen_Dots({ weight: ["400"], subsets: ['latin'], variable: '--font-zen' });
 
