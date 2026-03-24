@@ -39,10 +39,10 @@ export default async function HomePage() {
     <div >
       <Banner />
       <section className="max-w-6xl mx-auto px-4 sm:px-6 xl:py-20 py-10">
-        <div className="mb-8">
+        {/* <div className="mb-8">
           <CategoryTabs categories={categories ?? []} />
-        </div>
-        <BlogGrid blogs={rest} />
+        </div> */}
+        <BlogGrid blogs={flatBlogs} />
       </section>
       <div >
         <NewsletterBanner />

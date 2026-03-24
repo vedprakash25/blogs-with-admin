@@ -2,19 +2,22 @@ import Link from 'next/link'
 
 export const Banner = () => {
     return (
-        <section className="relative flex flex-col items-center justify-center text-center px-6 py-32 dark:from-transparent bg-linear-to-b from-orange-200 to-transparent ">
+        <section className="relative flex flex-col items-center justify-center text-center px-6 py-32 
+        dark:from-transparent bg-linear-to-b from-orange-200 to-transparent ">
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-80 rounded-full dark:bg-blue-500/[0.07] bg-white-500 blur-[80px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-150 w-44 lg:h-80 h-44 rounded-full dark:bg-blue-500/[0.07] bg-white-500 blur-[80px] pointer-events-none" />
             {/* <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t  dark:from-transparent from-orange-300/20 to-transparent pointer-events-none" /> */}
 
             <div className="relative z-10 flex flex-col items-center w-full max-w-3xl mx-auto">
-                {/* <div className="flex items-center gap-4 mb-14">
+                {/* 
+                <div className="flex items-center gap-4 mb-14">
                     <span className="h-px w-8 bg-orange-500/30" />
                     <span className="text-[11px] font-zen tracking-[0.5em] text-orange-500/50">Lense</span>
                     <span className="h-px w-8 bg-orange-500/30" />
-                </div> */}
+                </div> 
+                */}
 
-                <h1 className="text-6xl font-bold leading-[1.1] tracking-tight  mb-6 font-zen">See past<br />the <span className="text-orange-500">surface.</span></h1>
+                <h1 className="md:text-6xl text-4xl font-bold leading-[1.1] tracking-tight  mb-6 font-zen">See past <br className='md:block hidden'/>the <span className="text-orange-500">surface.</span></h1>
 
                 <p className="text-[clamp(0.95rem,1.8vw,1.1rem)] dark:text-white/70 text-zinc-600 font-light leading-relaxed max-w-lg mb-4">
                     A publication for people who aren't satisfied with the headline. We ask why it matters and don't stop until we find out.

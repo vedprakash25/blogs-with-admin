@@ -64,9 +64,9 @@ function renderNode(node: any, index: number): React.ReactNode {
             const text = (node.content ?? []).map((n: any) => n.text ?? '').join('')
             const id = slugify(text)
             const classes: Record<number, string> = {
-                1: 'text-3xl font-bold mt-10 mb-4 scroll-mt-24',
-                2: 'text-2xl font-semibold mt-8 mb-3 scroll-mt-24',
-                3: 'text-xl font-semibold mt-6 mb-2 scroll-mt-24',
+                1: ' font-bold mt-10 mb-4 scroll-mt-24',
+                2: ' font-semibold mt-8 mb-3 scroll-mt-24',
+                3: ' font-semibold mt-6 mb-2 scroll-mt-24',
             }
             const Tag = `h${level}` as React.ElementType
             return (
@@ -145,7 +145,7 @@ export default function TipTapRenderer({ content }: RendererProps) {
     if (!content?.content) return null
 
     return (
-        <div className="prose-custom max-w-none">
+        <div className="prose-custom  max-w-none">
             {content.content.map((node: any, i: number) => renderNode(node, i))}
         </div>
     )

@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import loader from "@/assets/infinite-spinner.svg"
+import Image from 'next/image'
 
 export default function SearchBar() {
   const [query, setQuery] = useState('')
@@ -52,21 +54,18 @@ export default function SearchBar() {
 
   return (
     <div ref={containerRef} className="relative w-full">
-      <div className="relative">
-        {/* <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
-          🔍
-        </span> */}
+      <div className="relative">      
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => results.length > 0 && setOpen(true)}
           placeholder="Search articles..."
-          className="w-full px-2 py-1.5 text-sm border border-border rounded-sm bg-muted/40 focus:bg-background focus:outline-none focus:ring-[1px] focus:ring-blue-300/20 transition placeholder:text-light"
+          className="w-full pl-4 pr-20 py-3 text-sm border border-border rounded-md bg-background focus:outline-none focus:ring-[1px] focus:ring-blue-300/20 transition placeholder:text-light"
         />
         {loading && (
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs">
-            ...
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs grayscale-100">
+            <Image height={40} width={40} src={loader} alt="loader" />
           </span>
         )}
       </div>

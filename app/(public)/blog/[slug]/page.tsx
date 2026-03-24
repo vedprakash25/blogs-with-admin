@@ -106,9 +106,9 @@ export default async function BlogPage({
   const toc = extractToc(blog.content)
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
+    <div className="2xl:max-w-5xl max-w-4xl mx-auto px-4 py-12 ">
       <div className="flex gap-12">
-        <article className="flex-1 min-w-0">
+        <article className="flex-1 min-w-0 tiptap-content">
           {blog.cover_image && (
             <img
               src={blog.cover_image}
@@ -116,14 +116,14 @@ export default async function BlogPage({
               className="w-full rounded-2xl object-top object-cover max-h-112 mb-8"
             />
           )}
-          <h1 className="text-4xl font-zen font-bold leading-tight mb-4">
+          {/* <h1 className=" font-bold leading-tight mb-4">
             {blog.title}
           </h1>
           {blog.excerpt && (
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 border-l-4 border-orange-500 pl-4">
               {blog.excerpt}
             </p>
-          )}
+          )} */}
           <div className="flex flex-wrap gap-2 items-center text-sm text-muted-foreground mb-4">
             {blog.published_at && (
               <span>
