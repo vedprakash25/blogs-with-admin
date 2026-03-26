@@ -42,6 +42,7 @@ export const metadata: Metadata = {
         alt: "The Lense | See past the surface.",
       },
     ],
+    
   },
 
   // ── Twitter Card ───────────────────────────────────────

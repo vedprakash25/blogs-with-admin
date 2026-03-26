@@ -30,8 +30,10 @@ export default function NewsletterBanner() {
   }
 
   return (
-    <section className='px-4'>
-      <div className="max-w-6xl xl:px-6 px-4 mx-auto bg-linear-to-br from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20 border border-orange-200 dark:border-orange-900 rounded-3xl py-12 text-center">
+    <section className='max-w-6xl mx-auto  px-4 sm:px-6'>
+      <div className="  bg-linear-to-br from-orange-50 via-orange-200 to-orange-300 
+      dark:from-orange-950/20 dark:via-orange-950/80 dark:to-orange-950/80 border border-orange-200 dark:border-orange-900 rounded-3xl py-12 text-center">
+
         <h2 className="text-2xl font-inter font-bold mb-2">Stay in the loop</h2>
         <p className="text-muted-foreground mb-6 max-w-md mx-auto">
           Get new articles delivered straight to your inbox. No spam, ever.

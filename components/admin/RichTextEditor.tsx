@@ -29,8 +29,8 @@ const ToolbarButton = ({
     onClick={onClick}
     title={title}
     className={`px-2 py-1.5 rounded text-sm transition-colors ${active
-        ? 'bg-orange-100 dark:bg-orange-950/40 text-orange-600'
-        : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+      ? 'bg-orange-100 dark:bg-orange-950/40 text-orange-600'
+      : 'text-muted-foreground hover:bg-muted hover:text-foreground'
       }`}
   >
     {children}
@@ -97,9 +97,9 @@ export default function RichTextEditor({
   if (!editor) return null
 
   return (
-    <div className="border border-border rounded-xl overflow-hidden">
+    <div className="border border-border rounded-xl overflow-hidden ">
       {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 border-b border-border bg-muted/40">
+      <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 border-b border-border bg-muted/40 ">
         <ToolbarButton
           onClick={() => editor.chain().focus().toggleBold().run()}
           active={editor.isActive('bold')}
