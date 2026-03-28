@@ -32,7 +32,7 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className={`${openMenu ? "w-60" : "w-16"} transition-all border shrink-0 min-h-screen border-r border-border flex flex-col bg-card`}>
+    <aside className={`${openMenu ? "w-60" : "w-16"} sticky top-0 left-0 transition-all border shrink-0 max-h-screen border-r border-border flex flex-col bg-card`}>
       {/* Logo */}
       <div className="p-4 flex justify-between border-b border-border">
         <div className={`${openMenu ? "w-full" : "w-0"} transition-all overflow-hidden`}>
