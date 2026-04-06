@@ -83,7 +83,6 @@ export async function POST(request: NextRequest) {
 
     const slug = slugify(title);
 
-    // Check slug uniqueness
     const { data: existing } = await supabase
       .from("blogs")
       .select("id")
