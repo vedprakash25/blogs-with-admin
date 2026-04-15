@@ -1,7 +1,7 @@
 import { slugify as slugifies } from "transliteration";
 
 export function slugify(text: string): string {
-  console.log(slugifies(text));
+  // console.log(slugifies(text));
   return slugifies(text);
 }
 // export function slugify(text: string): string {

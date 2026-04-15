@@ -9,6 +9,7 @@ import TagSelector from '@/components/admin/TagSelector'
 import SEOFields from '@/components/admin/SEOFields'
 import SchedulePublishModal from '@/components/admin/SchedulePublishModal'
 import type { Blog, Category } from '@/lib/types'
+import PostMetaForm from '@/components/admin/PostMetaForm'
 
 export default function EditBlogPage() {
   const router = useRouter()
@@ -121,18 +122,20 @@ export default function EditBlogPage() {
         </div>
       )}
 
-      <div className="grid grid-cols-3 gap-6">
-        <div className="col-span-2 space-y-6">
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Blog title..."
-            className="w-full text-3xl font-bold border-0 border-b border-border bg-transparent pb-3 focus:outline-none focus:border-orange-500 placeholder:text-muted-foreground/50 transition"
-          />
-
+      <div className="flex gap-6">
+        <div className="space-y-6 flex-1">
           <div>
-            <label className="block text-sm font-medium mb-2">Excerpt</label>
+            <label className="block text-sm font-medium mb-2">Card Title</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Blog title..."
+              className="w-full font-bold border-0 border-b border-border bg-transparent pb-3 focus:outline-none focus:border-orange-500 placeholder:text-muted-foreground/50 transition"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">Card Description</label>
             <textarea
               value={excerpt}
               onChange={(e) => setExcerpt(e.target.value)}
@@ -141,7 +144,7 @@ export default function EditBlogPage() {
             />
           </div>
 
-          <div>
+          <div className='relative'>
             <label className="block text-sm font-medium mb-2">Content</label>
             <RichTextEditor content={content} onChange={setContent} />
           </div>
@@ -155,21 +158,15 @@ export default function EditBlogPage() {
         </div>
 
         <div className="space-y-6">
-          <ImageUploader value={coverImage} onChange={setCoverImage} />
-          <div>
-            <label className="block text-sm font-medium mb-2">Category</label>
-            <select
-              value={categoryId}
-              onChange={(e) => setCategoryId(e.target.value)}
-              className="w-full px-3 py-2 text-sm border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-orange-500"
-            >
-              <option value="">Select category</option>
-              {categories.map((c) => (
-                <option key={c.id} value={c.id}>{c.name}</option>
-              ))}
-            </select>
-          </div>
-          <TagSelector selectedIds={selectedTags} onChange={setSelectedTags} />
+          <PostMetaForm
+            coverImage={coverImage}
+            setCoverImage={setCoverImage}
+            categoryId={categoryId}
+            setCategoryId={setCategoryId}
+            categories={categories}
+            selectedTags={selectedTags}
+            setSelectedTags={setSelectedTags}
+          />
         </div>
       </div>
 

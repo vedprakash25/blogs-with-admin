@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // ✅ optional (to bypass ESLint in build)
   },
+  transpilePackages: ["gsap"],
   images: {
     remotePatterns: [
       {

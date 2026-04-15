@@ -71,7 +71,7 @@ export default function TagSelector({ selectedIds, onChange }: TagSelectorProps)
                 key={tag.id}
                 type="button"
                 onClick={() => toggle(tag.id)}
-                className={`px-3 py-1 rounded-full text-sm border transition-colors ${
+                className={`px-3 py-1 rounded-full text-xs border transition-colors ${
                   selected
                     ? 'bg-orange-500 text-white border-orange-500'
                     : 'border-border text-muted-foreground hover:border-orange-400 hover:text-foreground'
@@ -92,13 +92,13 @@ export default function TagSelector({ selectedIds, onChange }: TagSelectorProps)
           onChange={(e) => setNewTagName(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), createTag())}
           placeholder="New tag name..."
-          className="flex-1 px-3 py-1.5 text-sm border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="flex-1 px-3 py-1.5 text-xs border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
         <button
           type="button"
           onClick={createTag}
           disabled={creating || !newTagName.trim()}
-          className="px-3 py-1.5 text-sm bg-muted hover:bg-muted/80 rounded-lg border border-border disabled:opacity-50 transition"
+          className="px-3 py-1.5 text-xs bg-muted hover:bg-muted/80 rounded-lg border border-border disabled:opacity-50 transition"
         >
           {creating ? '...' : '+ Add'}
         </button>

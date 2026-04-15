@@ -9,6 +9,7 @@ import TagSelector from '@/components/admin/TagSelector'
 import SEOFields from '@/components/admin/SEOFields'
 import SchedulePublishModal from '@/components/admin/SchedulePublishModal'
 import type { Category } from '@/lib/types'
+import PostMetaForm from '@/components/admin/PostMetaForm'
 
 export default function NewBlogPage() {
   const router = useRouter()
@@ -102,7 +103,7 @@ export default function NewBlogPage() {
         </div>
       )}
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="flex gap-6">
         {/* Main content */}
         <div className="col-span-2 space-y-6">
           <div>
@@ -140,24 +141,16 @@ export default function NewBlogPage() {
         </div>
 
         {/* Sidebar */}
-        <div className="space-y-6">
-          <ImageUploader value={coverImage} onChange={setCoverImage} />
-
-          <div>
-            <label className="block text-sm font-medium mb-2">Category</label>
-            <select
-              value={categoryId}
-              onChange={(e) => setCategoryId(e.target.value)}
-              className="w-full px-3 py-2 text-sm border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-orange-500"
-            >
-              <option value="">Select category</option>
-              {categories.map((c) => (
-                <option key={c.id} value={c.id}>{c.name}</option>
-              ))}
-            </select>
-          </div>
-
-          <TagSelector selectedIds={selectedTags} onChange={setSelectedTags} />
+        <div className="space-y-6 max-w-sm border-2">
+          <PostMetaForm
+            coverImage={coverImage}
+            setCoverImage={setCoverImage}
+            categoryId={categoryId}
+            setCategoryId={setCategoryId}
+            categories={categories}
+            selectedTags={selectedTags}
+            setSelectedTags={setSelectedTags}
+          />
         </div>
       </div>
 
